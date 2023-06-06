@@ -1,4 +1,25 @@
-### ¾È³çÇÏ¼¼¿ä. Device Driver °³¹ß ÆäÀÌÁöÀÔ´Ï´Ù.
+### ì•ˆë…•í•˜ì„¸ìš”. Device Driver ê°œë°œ í˜ì´ì§€ì…ë‹ˆë‹¤.
 
 ---
 
+- Read implement
+- Read Exception
+- Write implement
+- Write Exception
+
+'''cpp
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
+#include "../Project128/DeviceDriver.cpp"
+#include "../Project128/app.cpp"
+
+using namespace std;
+using namespace testing;
+
+class MockDevice : public FlashMemoryDevice {
+public:
+	MOCK_METHOD(unsigned char, read, (long address), (override));
+	MOCK_METHOD(void, write, (long address, unsigned char data), (override));
+};
+
+'''
